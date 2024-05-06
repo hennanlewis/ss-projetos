@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem 0;
+    font-family: "Signika Negative", sans-serif;
+    background-color: #0b141a;
+}
+
+#bg {
+    position: absolute;
+    min-height: 100vh;
+    inset: 0;
+    background-image: url(./original-whatsapp-bg-chat.png);
+    opacity: .7;
+}
+
+.container {
+    max-width: 90vw;
+    width: 30rem;
+    margin: 1rem;
+    background-color: #0b141a;
+    border-radius: 8px;
+    padding: 3rem 1rem;
+    box-shadow: inset 0 0 0 3px #fff, 0 10px 20px 10px #000;
+    z-index: 1;
+}
+
+header h1 {
+    text-align: center;
+    color: #008068;
+}
+
+header div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 0.25rem;
+}
+
+header label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 90%;
+    width: 20rem;
+}
+
+header input,
+header button {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #0009;
+    border-radius: 5px;
+}
+
+header button {
+    padding: 0.4rem;
+    font-weight: 600;
+    color: #fff;
+    background: #005c4b;
+    transition: 300ms;
+}
+
+header button:hover {
+    background: #008068;
+}
+
+header ul {
+    max-width: 90%;
+    width: 20rem;
+    color: #fff;
+    list-style-position: inside;
+}
+
+main {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 5px;
+    color: #ffeb;
+}
