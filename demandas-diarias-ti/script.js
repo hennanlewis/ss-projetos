@@ -89,6 +89,7 @@ const addList = (parentElement) => {
 }
 
 const addSecondHalf = (mainElement) => {
+    addToMain(mainElement)
     addToMain(mainElement, "Demais demandas, avisar no meu Privado. Conto com a AJUDA DO TRANSPORTE DAS UBS PARA PODEMOS IR NA UNIDADE⚠💾✅")
     addToMain(mainElement)
     addToMain(mainElement, "Obs.: CASO ALGUMA UBS PRECISE DE TINTA PARA IMPRESSORA AVISE ANTES QUE ACABE ⚠🫡📍")
