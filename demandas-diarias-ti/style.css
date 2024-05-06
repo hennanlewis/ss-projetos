@@ -84,3 +84,7 @@ main {
     border-radius: 5px;
     color: #ffeb;
 }
+
+main ul {
+    list-style: none;
+}
