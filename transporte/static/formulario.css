@@ -1,0 +1,65 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.5rem;
+    width: 100%;
+}
+
+label {
+    width: 15rem;
+    max-width: 95%;
+}
+
+input {
+    width: 100%;
+    padding: 0.25rem;
+}
+
+button,
+select {
+    width: 15rem;
+    margin: 0 auto;
+    padding: 0.25rem;
+}
+
+button {
+    padding: 4px 10px;
+    background-color: #ffa200;
+    font-family: "Signika Negative";
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: 0 3px 2px #0009;
+    border-radius: 3px;
+    border: 0;
+}
+
+button:hover {
+    background-color: #ffc766;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.viagem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.5rem;
+    margin-top: 1rem;
+    width: 20rem;
+    max-width: 90%;
+}
+
+.viagem input:disabled,
+.viagem select:disabled,
+.viagem button:disabled {
+    background-color: #e9ecef;
+    color: #6c757d;
+    border: 0;
+    cursor: not-allowed;
+}
+
+button.edit-button {
+    width: 6rem;
+}

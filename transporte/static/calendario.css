@@ -1,0 +1,98 @@
+.calendar-group {
+    display: flex;
+    flex-direction: column;
+    width: 25em;
+    max-width: 90%;
+    border: 1px solid #ffc766;
+    border-bottom: 4px solid #ffc766;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 5px #0004;
+}
+
+.calendar-group * {
+    box-sizing: border-box;
+    cursor: default;
+}
+
+.legend {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffc766;
+    padding: 3px 10px;
+    color: #fff;
+    font-size: 2em;
+    font-weight: bolder;
+    border-radius: 5px 5px 0 0;
+}
+
+.legend img {
+    width: 2em;
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 25em;
+    max-width: 100%;
+    margin: 0px auto;
+    text-align: center;
+    background: #fff;
+}
+
+.calendar :not(.title) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3px;
+    color: #473a1f;
+    font-size: larger;
+    border-radius: 5px;
+    box-shadow: 1px 1px #ffeccc, -1px 1px #ffeccc, 1px -1px #ffeccc, -1px -1px #ffeccc;
+    aspect-ratio: 1;
+}
+
+.calendar :not(.title):hover {
+    background-color: #ffda99;
+    transition: 200ms;
+}
+
+.calendar .title {
+    background: #ffc766;
+    padding: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.calendar .last-month,
+.calendar .next-month {
+    color: #ffda99;
+}
+
+.calendar .last-month:hover,
+.calendar .next-month:hover {
+    background-color: transparent;
+}
+
+.calendar div.today {
+    background: #ffc766;
+    color: #fff;
+    font-weight: bold;
+}
+
+.calendar a {
+    text-decoration: none;
+    cursor: pointer;
+}

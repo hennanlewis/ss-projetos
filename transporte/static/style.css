@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    min-height: 100dvh;
+    font-family: "Signika Negative";
+}
+
+main {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 4rem;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    width: 17em;
+    max-width: 90%;
+    height: 100dvh;
+    border: 1px solid #ffc766;
+    border-bottom: 4px solid #ffc766;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 5px #0004;
+}
+
+header h1 {
+    background: #ffc766;
+    padding: 3px 10px;
+    color: #fff;
+    font-weight: bolder;
+    border-radius: 5px 5px 0 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    line-height: normal;
+}
+
+nav a,
+nav ul {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #473a1f;
+    padding: 4px 20px;
+    padding-right: 0;
+    list-style: none;
+}
+
+nav span {
+    padding-left: 20px;
+    color: #473a1f99;
+}
+
+nav a:hover {
+    background-color: #ffda99;
+    color: #fff;
+    transition: 200ms;
+}
