@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Viagem</title>
+    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="./static/formulario.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    {% include "components/header-nav.html" %}
+    <main>
+        <form id="form">
+            <label>
+                <span>CPF</span>
+                <input type="text" id="cpf" name="cpf" required placeholder="Somente dígitos">
+            </label>
+            <button type="button" id="pesquisar-cpf">Pesquisar CPF</button>
+            <div class="viagem">
+                <label>
+                    <span>Nome</span>
+                    <input type="text" id="nome" name="nome" required disabled>
+                </label>
+                <label>
+                    <span>Endereço</span>
+                    <input type="text" id="endereco" name="endereco" required disabled>
+                </label>
+                <label>
+                    <span>Bairro</span>
+                    <input type="text" id="bairro" name="bairro" required disabled>
+                </label>
+                <label>
+                    <span>Contato</span>
+                    <input type="text" id="contato" name="contato" required disabled>
+                </label>
+                <label>
+                    <span>Data</span>
+                    <input type="date" id="data" name="data" required disabled>
+                </label>
+                <label>
+                    <span>Cidade</span>
+                    <select id="cidadeDestino" name="cidadeDestino" disabled>
+                        <option value="Fortaleza">Fortaleza</option>
+                        <option value="Sobral">Sobral</option>
+                        <option value="Granja">Granja</option>
+                    </select>
+                </label>
+                <label>
+                    <span>Local</span>
+                    <input type="text" id="local" name="local" required disabled>
+                </label>
+                <label>
+                    <span>Acompanhante</span>
+                    <select id="acompanhante" name="acompanhante" disabled>
+                        <option value="nao">Não</option>
+                        <option value="sim">Sim</option>
+                    </select>
+                </label>
+                <label>
+                    <span>Tipo de Viagem</span>
+                    <select id="tipo_viagem" name="tipo_viagem" disabled>
+                        <option value="ida">Ida</option>
+                        <option value="volta">Volta</option>
+                        <option value="idavolta">Ida e volta</option>
+                    </select>
+                </label>
+                <button type="submit" disabled>Cadastrar</button>
+                <button type="reset" disabled>Limpar campos</button>
+            </div>
+        </form>
+    </main>
+
+    <script src="./static/cadastrar-viagem.js"></script>
+</body>
+
+</html>
