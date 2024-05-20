@@ -4,7 +4,7 @@ const form = document.querySelector("#form")
 const dadosContainer = document.querySelector("#dados")
 
 const buscarEExibirViagens = (date) => {
-    fetch("buscar-lista", {
+    fetch("buscar-viagem", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -36,6 +36,7 @@ const buscarEExibirViagens = (date) => {
                 <p><strong>Local:</strong> ${viagem.local}</p>
                 <p><strong>Acompanhante:</strong> ${viagem.acompanhante}</p>
                 <p><strong>Tipo de Viagem:</strong> ${viagem.tipo_viagem}</p>
+                <button class="excluir-button" data-id="${viagem.id}">Excluir</button>
             `
                 card.innerHTML = cardContent
                 dadosContainer.appendChild(card)
@@ -49,7 +50,7 @@ const buscarEExibirViagens = (date) => {
 if (params.has("date")) {
     const date = params.get("date")
     console.log("A data fornecida é:", date)
-    buscarEExibirViagens(date) 
+    buscarEExibirViagens(date)
 } else {
     console.log("Não há parâmetro de data na URL.")
 }
@@ -60,4 +61,32 @@ form.addEventListener("submit", function (event) {
     const date = formData.get("date")
 
     buscarEExibirViagens(date)
+})
+
+dadosContainer.addEventListener("click", function (event) {
+    const target = event.target
+    if (target.classList.contains("excluir-button")) {
+        const id = target.getAttribute("data-id")
+        fetch("buscar-viagem", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ id })
+        })
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error("Erro ao enviar dados")
+                }
+                return response.json()
+            })
+            .then(function (data) {
+                console.log("Viagem encontrada:", data)
+                window.location.reload()
+                alert(data.message)
+            })
+            .catch(function (error) {
+                console.error("Erro:", error)
+            })
+    }
 })

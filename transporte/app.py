@@ -87,16 +87,27 @@ def buscar_paciente():
 
     return jsonify(pacientes_json)
 
-@app.route("/buscar-lista", methods=["POST"])
+@app.route("/buscar-viagem", methods=["POST"])
 def buscar_lista():
-    date = request.get_json().get("date")
+    data = request.get_json()
+    id = data.get("id")
+    date = data.get("date")
 
+    print(id, date)
     conn = sqlite3.connect("data/transporte.db")
     c = conn.cursor()
-    if date:
-        c.execute("SELECT * FROM viagens WHERE data = ?", (date,))
+
+    if id:
+        deleted_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        c.execute("UPDATE viagens SET deleted_at = ? WHERE id = ?", (deleted_at, id))
+        conn.commit()
+        conn.close()
+        return jsonify({"message": "Registro atualizado com sucesso."})
+    
+    elif date:
+        c.execute("SELECT * FROM viagens WHERE data = ? AND deleted_at IS NULL", (date,))
     else:
-        c.execute("SELECT * FROM viagens")
+        c.execute("SELECT * FROM viagens WHERE deleted_at IS NULL")
 
     viagens = c.fetchall()
     conn.close()
