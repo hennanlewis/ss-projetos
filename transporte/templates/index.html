@@ -13,10 +13,16 @@
 </head>
 
 <body>
-    {% include "components/header-nav.html" %}
-    <main>
-        {% include "components/calendario.html" %}
-    </main>
+    {% include "components/top.html" %}
+    <section class="container">
+        {% include "components/header-nav.html" %}
+        <main>
+            <h2 class="title">Dashboard</h2>
+            <div class="content">
+                {% include "components/calendario.html" %}
+            </div>
+        </main>
+    </section>
     <script src="./static/calendario.js"></script>
 </body>
 
