@@ -1,7 +1,7 @@
 const form = document.querySelector("#form")
 const pesquisarCpfButton = document.querySelector("#pesquisar-cpf")
 const cpfInput = document.querySelector("#cpf")
-const viagemFields = document.querySelectorAll(".viagem input, .viagem select, .viagem button")
+const viagemFields = document.querySelectorAll(".inputs input, .inputs select, .actions button")
 const cadastrarButton = form.querySelector("button[type='submit']")
 
 viagemFields.forEach(field => field.disabled = true)
