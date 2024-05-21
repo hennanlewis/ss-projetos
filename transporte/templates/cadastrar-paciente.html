@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Pessoa</title>
+    <title>Cadastrar Paciente</title>
     <link rel="stylesheet" href="./static/style.css">
     <link rel="stylesheet" href="./static/formulario.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,32 +13,43 @@
 </head>
 
 <body>
-    {% include "components/header-nav.html" %}
-    <main>
-        <form id="form">
-            <label>
-                <span>CPF</span>
-                <input type="text" id="cpf" name="cpf" required>
-            </label>
-            <label>
-                <span>Nome</span>
-                <input type="text" id="nome" name="nome" required>
-            </label>
-            <label>
-                <span>Endereço</span>
-                <input type="text" id="endereco" name="endereco" required>
-            </label>
-            <label>
-                <span>Bairro</span>
-                <input type="text" id="bairro" name="bairro" required>
-            </label>
-            <label>
-                <span>Contato</span>
-                <input type="text" id="contato" name="contato" required>
-            </label>
-            <button type="submit">Cadastrar</button>
-        </form>
-    </main>
+    {% include "components/top.html" %}
+    <section class="container">
+        {% include "components/header-nav.html" %}
+        <main>
+            <h2 class="title">Cadastrar Paciente</h2>
+            <div class="content">
+                <form id="form" class="contentForm">
+                    <div class="inputs">
+                        <label>
+                            <span>CPF</span>
+                            <input type="text" id="cpf" name="cpf" required>
+                        </label>
+                        <label>
+                            <span>Nome</span>
+                            <input type="text" id="nome" name="nome" required>
+                        </label>
+                        <label>
+                            <span>Endereço</span>
+                            <input type="text" id="endereco" name="endereco" required>
+                        </label>
+                        <label>
+                            <span>Bairro</span>
+                            <input type="text" id="bairro" name="bairro" required>
+                        </label>
+                        <label>
+                            <span>Contato</span>
+                            <input type="text" id="contato" name="contato">
+                        </label>
+                    </div>
+
+                    <div class="actions">
+                        <button type="submit">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </section>
 
     <script src="./static/cadastrar-paciente.js"></script>
 </body>
