@@ -15,17 +15,25 @@
 </head>
 
 <body>
-    {% include "components/header-nav.html" %}
-    <main>
-        <form id="form">
-            <label>
-                <span>Data:</span>
-                <input type="date" name="date" placeholder="Digite a data">
-            </label>
-            <button>Pesquisar</button>
-        </form>
-        <div id="dados"></div>
-    </main>
+    {% include "components/top.html" %}
+    <section class="container">
+        {% include "components/header-nav.html" %}
+        <main>
+            <h2 class="title">Lista de viagens</h2>
+            <div class="content">
+                <form id="form" class="contentForm">
+                    <div class="inputsEnabled">
+                        <label>
+                            <span>Data:</span>
+                            <input type="date" name="date" placeholder="Digite a data">
+                        </label>
+                        <button>Pesquisar</button>
+                    </div>
+                </form>
+                <div id="dados"></div>
+            </div>
+        </main>
+    </section>
     <script src="./static/procurar-viagens.js"></script>
 </body>
 

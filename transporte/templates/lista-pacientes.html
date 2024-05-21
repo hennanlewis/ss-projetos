@@ -15,17 +15,25 @@
 </head>
 
 <body>
-    {% include "components/header-nav.html" %}
-    <main>
-        <form id="form">
-            <label>
-                <span>CPF</span>
-                <input type="text" name="cpf" placeholder="Digite o CPF">
-            </label>
-            <button>Pesquisar</button>
-        </form>
-        <div id="dados"></div>
-    </main>
+    {% include "components/top.html" %}
+    <section class="container">
+        {% include "components/header-nav.html" %}
+        <main>
+            <h2 class="title">Lista de pacientes</h2>
+            <div class="content">
+                <form id="form" class="contentForm">
+                    <div class="inputsEnabled">
+                        <label>
+                            <span>CPF</span>
+                            <input type="text" name="cpf" placeholder="Digite o CPF">
+                        </label>
+                        <button>Pesquisar</button>
+                    </div>
+                </form>
+                <div id="dados"></div>
+            </div>
+        </main>
+    </section>
     <script src="./static/procurar-pacientes.js"></script>
 </body>
 
