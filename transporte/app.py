@@ -7,7 +7,7 @@ app = Flask(__name__, static_folder="static")
 def check_tables():
     conn = sqlite3.connect("data/transporte.db")
     c = conn.cursor()
-    
+
     c.execute("""CREATE TABLE IF NOT EXISTS pacientes
                  (id INTEGER PRIMARY KEY AUTOINCREMENT,
                   cpf TEXT UNIQUE,
@@ -17,7 +17,7 @@ def check_tables():
                   contato TEXT,
                   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                   modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)""")
-    
+
     c.execute("""CREATE TABLE IF NOT EXISTS viagens
                  (id INTEGER PRIMARY KEY AUTOINCREMENT,
                   cpf TEXT,
@@ -29,16 +29,12 @@ def check_tables():
                   destino TEXT,
                   local TEXT,
                   acompanhante TEXT,
-                  tipo_viagem TEXT,
+                  obs TEXT,
+                  motivo TEXT,
                   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                   modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                   deleted_at TIMESTAMP)""")
-    
-    c.execute("PRAGMA table_info(viagens)")
-    columns = [info[1] for info in c.fetchall()]
-    if 'deleted_at' not in columns:
-        c.execute("ALTER TABLE viagens ADD COLUMN deleted_at TIMESTAMP")
-    
+
     conn.commit()
     conn.close()
 
@@ -79,7 +75,7 @@ def buscar_paciente():
         c.execute("SELECT * FROM pacientes WHERE cpf = ?", (cpf,))
     else:
         c.execute("SELECT * FROM pacientes")
-    
+
     pacientes = c.fetchall()
     conn.close()
 
@@ -103,7 +99,7 @@ def buscar_lista():
         conn.commit()
         conn.close()
         return jsonify({"message": "Registro atualizado com sucesso."})
-    
+
     elif date:
         c.execute("SELECT * FROM viagens WHERE data = ? AND deleted_at IS NULL", (date,))
     else:
@@ -112,7 +108,7 @@ def buscar_lista():
     viagens = c.fetchall()
     conn.close()
 
-    viagens_json = [{"id": row[0], "cpf": row[1], "nome": row[2], "endereco": row[3], "bairro": row[4], "contato": row[5], "data": row[6], "destino": row[7], "local": row[8], "acompanhante": row[9], "tipo_viagem": row[10]} for row in viagens]
+    viagens_json = [{"id": row[0], "cpf": row[1], "nome": row[2], "endereco": row[3], "bairro": row[4], "contato": row[5], "data": row[6], "destino": row[7], "local": row[8], "acompanhante": row[9], "obs": row[10], "motivo": row[11]} for row in viagens]
 
     return jsonify(viagens_json)
 
@@ -174,7 +170,8 @@ def submit_viagem():
     destino = data["cidade_destino"]
     local = data["local"]
     acompanhante = data["acompanhante"]
-    tipo_viagem = data["tipo_viagem"]
+    obs = data["obs"]
+    motivo = data["motivo"]
 
     created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     modified_at = created_at
@@ -182,9 +179,9 @@ def submit_viagem():
     conn = sqlite3.connect("data/transporte.db")
     c = conn.cursor()
     c.execute("""INSERT INTO viagens
-                 (cpf, nome, endereco, bairro, contato, data, destino, local, acompanhante, tipo_viagem, created_at, modified_at, deleted_at)
-                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-              (cpf, nome, endereco, bairro, contato, data_viagem, destino, local, acompanhante, tipo_viagem, created_at, modified_at, None))
+                 (cpf, nome, endereco, bairro, contato, data, destino, local, acompanhante, obs, motivo, created_at, modified_at, deleted_at)
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+              (cpf, nome, endereco, bairro, contato, data_viagem, destino, local, acompanhante, obs, motivo, created_at, modified_at, None))
     conn.commit()
     conn.close()
 
