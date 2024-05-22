@@ -31,12 +31,12 @@ const buscarEExibirViagens = (date) => {
                 <p><strong>CPF:</strong> ${viagem.cpf}</p>
                 <p><strong>Endereço:</strong> ${viagem.endereco}, ${viagem.bairro}</p>
                 <p><strong>Contato:</strong> ${viagem.contato}</p>
-                <p><strong>Data:</strong> ${viagem.data}</p>
+                <p><strong>Data:</strong> ${viagem.data.split("-").reverse().join("/")}</p>
                 <p><strong>Destino:</strong> ${viagem.destino}</p>
                 <p><strong>Local:</strong> ${viagem.local}</p>
                 <p><strong>Acompanhante:</strong> ${viagem.acompanhante}</p>
-                <p><strong>Tipo de Viagem:</strong> ${viagem.tipo_viagem}</p>
-                <button class="excluir-button" data-id="${viagem.id}">Excluir</button>
+                <p><strong>Observação:</strong> ${viagem.obs}</p>
+                <button class="botaoDeletar" data-id="${viagem.id}">Excluir</button>
             `
                 card.innerHTML = cardContent
                 dadosContainer.appendChild(card)
@@ -65,7 +65,7 @@ form.addEventListener("submit", function (event) {
 
 dadosContainer.addEventListener("click", function (event) {
     const target = event.target
-    if (target.classList.contains("excluir-button")) {
+    if (target.classList.contains("botaoDeletar")) {
         const id = target.getAttribute("data-id")
         fetch("buscar-viagem", {
             method: "POST",

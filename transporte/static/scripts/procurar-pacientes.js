@@ -31,29 +31,34 @@ const removeCards = (row) => {
 
     const editForm = document.createElement("form")
     editForm.id = "edit-form"
+    editForm.classList.add("contentForm")
 
     editForm.innerHTML = `
-        <label>
-            <span>CPF</span>
-            <input type="text" id="cpf" name="cpf" value="${row.cpf}" required>
-        </label>
-        <label>
-            <span>Nome</span>
-            <input type="text" id="nome" name="nome" value="${row.nome}" required>
-        </label>
-        <label>
-            <span>Endereço</span>
-            <input type="text" id="endereco" name="endereco" value="${row.endereco}" required>
-        </label>
-        <label>
-            <span>Bairro</span>
-            <input type="text" id="bairro" name="bairro" value="${row.bairro}" required>
-        </label>
-        <label>
-            <span>Contato</span>
-            <input type="text" id="contato" name="contato" value="${row.contato}" required>
-        </label>
-        <button type="submit">Editar</button>
+        <div class="inputs">
+            <label>
+                <span>CPF</span>
+                <input type="text" id="cpf" name="cpf" value="${row.cpf}" required>
+            </label>
+            <label>
+                <span>Nome</span>
+                <input type="text" id="nome" name="nome" value="${row.nome}" required>
+            </label>
+            <label>
+                <span>Endereço</span>
+                <input type="text" id="endereco" name="endereco" value="${row.endereco}" required>
+            </label>
+            <label>
+                <span>Bairro</span>
+                <input type="text" id="bairro" name="bairro" value="${row.bairro}" required>
+            </label>
+            <label>
+                <span>Contato</span>
+                <input type="text" id="contato" name="contato" value="${row.contato}">
+            </label>
+        </div>
+        <div class="actions">
+            <button type="submit">Editar</button>
+        </div>
     `
 
     editForm.addEventListener("submit", function (event) {
@@ -109,11 +114,11 @@ form.addEventListener("submit", function (event) {
                 <p><strong>CPF:</strong> ${row.cpf}</p>
                 <p><strong>Endereço:</strong> ${row.endereco}, ${row.bairro}</p>
                 <p><strong>Contato:</strong> ${row.contato}</p>
-                <button class="edit-button" data-id="${row.id}">Editar</button>
+                <button class="botaoEditar" data-id="${row.id}">Editar</button>
             `
                 card.innerHTML = cardContent
 
-                const editButton = card.querySelector(".edit-button")
+                const editButton = card.querySelector(".botaoEditar")
                 editButton.addEventListener("click", () => removeCards(row))
 
                 dadosContainer.appendChild(card)

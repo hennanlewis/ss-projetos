@@ -58,6 +58,7 @@ form.addEventListener("submit", function (event) {
     const local = document.querySelector("#local").value
     const acompanhante = document.querySelector("#acompanhante").value
     const obs = document.querySelector("#obs").value
+    const motivo = document.querySelector("#motivo").value
 
     const formData = {
         cpf,
@@ -69,7 +70,8 @@ form.addEventListener("submit", function (event) {
         cidade_destino,
         local,
         acompanhante,
-        obs
+        obs,
+        motivo
     }
 
     console.log(formData)
