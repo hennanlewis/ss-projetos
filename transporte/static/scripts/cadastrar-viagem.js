@@ -9,6 +9,8 @@ viagemFields.forEach(field => field.disabled = true)
 pesquisarCpfButton.addEventListener("click", function () {
     const cpf = cpfInput.value
 
+    if (cpf == "") return
+
     fetch("/buscar-paciente", {
         method: "POST",
         headers: {
@@ -55,7 +57,7 @@ form.addEventListener("submit", function (event) {
     const cidade_destino = document.querySelector("#cidadeDestino").value
     const local = document.querySelector("#local").value
     const acompanhante = document.querySelector("#acompanhante").value
-    const tipo_viagem = document.querySelector("#tipo_viagem").value
+    const obs = document.querySelector("#obs").value
 
     const formData = {
         cpf,
@@ -67,7 +69,7 @@ form.addEventListener("submit", function (event) {
         cidade_destino,
         local,
         acompanhante,
-        tipo_viagem
+        obs
     }
 
     console.log(formData)
