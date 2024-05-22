@@ -3,10 +3,10 @@
     flex-direction: column;
     width: 25em;
     max-width: 90%;
-    border: 1px solid #ffc766;
-    border-bottom: 4px solid #ffc766;
+    background: var(--bg-primary);
+    border: 10px solid var(--bg-primary);
     border-radius: 0.5rem;
-    box-shadow: 0 5px 5px #0004;
+    box-shadow: 0 2px 5px #0004;
 }
 
 .calendar-group * {
@@ -22,7 +22,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #ffc766;
+    background: var(--primary);
     padding: 3px 10px;
     color: #fff;
     font-size: 2em;
@@ -48,7 +48,6 @@
     max-width: 100%;
     margin: 0px auto;
     text-align: center;
-    background: #fff;
 }
 
 .calendar :not(.title) {
@@ -56,10 +55,11 @@
     justify-content: center;
     align-items: center;
     margin: 3px;
+    background-color: #fff;
     color: #473a1f;
     font-size: larger;
     border-radius: 5px;
-    box-shadow: 1px 1px #ffeccc, -1px 1px #ffeccc, 1px -1px #ffeccc, -1px -1px #ffeccc;
+    box-shadow: 1px 1px 1px #0003, -1px 1px 1px #0003, 1px -1px 1px #0003, -1px -1px 1px #0003;
     aspect-ratio: 1;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .calendar .title {
-    background: #ffc766;
+    background: var(--primary);
     padding: 5px;
     color: #fff;
     font-weight: bold;
@@ -87,7 +87,7 @@
 }
 
 .calendar div.today {
-    background: #ffc766;
+    background: var(--bg-primary);
     color: #fff;
     font-weight: bold;
 }

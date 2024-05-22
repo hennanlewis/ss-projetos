@@ -77,7 +77,7 @@
 }
 
 .actions button[type="submit"]:enabled:hover {
-    background: var(--support);
+    background: var(--bg-support);
 }
 
 .inputs input:disabled,

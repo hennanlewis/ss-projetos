@@ -1,14 +1,14 @@
 :root {
-    --primary: #34726C;
-    --support: #347239;
+    --primary: #e09952;
+    --support: #7a541f;
     --bg-primary: #FBF1E8;
-    --bg-support: #34726C;
+    --bg-support: #736935;
     --title-primary: #FFF;
     --title-secondary: #FFF;
     --text-primary: #f0f2f5;
     --text-support: #183432;
-    --text-span: #387a76;
-    --border-primary: #8BAB9E;
+    --text-span: #7a6f38;
+    --border-primary: hsl(36, 16%, 61%);
     --border-support: #8E8775;
     --color-extra1: #3873A6;
     --color-extra2: #9B8ABF;
