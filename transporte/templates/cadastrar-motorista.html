@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Motorista</title>
+    <link rel="stylesheet" href="./static/styles/style.css">
+    <link rel="stylesheet" href="./static/styles/formulario.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    {% include "components/top.html" %}
+    <section class="container">
+        {% include "components/header-nav.html" %}
+        <main>
+            <h2 class="title">Cadastrar Motorista</h2>
+            <div class="content">
+                <form id="form" class="contentForm">
+                    <div class="inputs">
+                        <label>
+                            <span>Nome</span>
+                            <input type="text" id="nome" name="nome" required>
+                        </label>
+                        <label>
+                            <span>Veículo</span>
+                            <input type="text" id="veiculo" name="veiculo" required>
+                        </label>
+                        <label>
+                            <span>Quantidade de Passageiros</span>
+                            <input type="number" id="quantidade_passageiros" name="quantidade_passageiros" required>
+                        </label>
+                    </div>
+
+                    <div class="actions">
+                        <button type="submit">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </section>
+
+    <script src="./static/scripts/cadastrar-motorista.js"></script>
+</body>
+
+</html>

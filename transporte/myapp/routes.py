@@ -30,6 +30,10 @@ def init_routes(app):
     @app.route("/calendario")
     def calendario():
         return render_template("calendario.html")
+    
+    @app.route("/cadastrar-motorista")
+    def cadastrar_motorista():
+        return render_template("cadastrar-motorista.html")
 
     @app.route("/buscar-paciente", methods=["POST"])
     def buscar_paciente():
