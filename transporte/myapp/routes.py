@@ -154,3 +154,24 @@ def init_routes(app):
         conn.close()
 
         return jsonify({"message": "Viagem adicionada com sucesso"})
+
+    @app.route("/submit-motorista", methods=["POST"])
+    def submit_motorista():
+        data = request.get_json()
+        nome = data["nome"]
+        veiculo = data["veiculo"]
+        quantidade_passageiros = data["quantidade_passageiros"]
+
+        created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        modified_at = created_at
+
+        conn = sqlite3.connect("data/transporte.db")
+        c = conn.cursor()
+        c.execute("""INSERT INTO motoristas
+                    (nome, veiculo, quantidade_passageiros, created_at, modified_at)
+                    VALUES (?, ?, ?, ?, ?)""",
+                (nome, veiculo, quantidade_passageiros, created_at, modified_at))
+        conn.commit()
+        conn.close()
+
+        return jsonify({"message": "Motorista adicionado com sucesso"})
