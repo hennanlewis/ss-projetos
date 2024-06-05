@@ -35,13 +35,19 @@ def check_tables():
                  (id INTEGER PRIMARY KEY AUTOINCREMENT,
                   nome TEXT,
                   veiculo TEXT,
-                  qtdd_lugares INTEGER)""")
+                  qtdd_lugares INTEGER,
+                  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                  modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                  deleted_at TIMESTAMP)""")
 
     c.execute("""CREATE TABLE IF NOT EXISTS rotas
                  (id INTEGER PRIMARY KEY AUTOINCREMENT,
                   viagem_id INTEGER,
                   motorista_id INTEGER,
                   nome_rota TEXT,
+                  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                  modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                  deleted_at TIMESTAMP,
                   FOREIGN KEY (viagem_id) REFERENCES viagens(id),
                   FOREIGN KEY (motorista_id) REFERENCES motoristas(id))""")
 
