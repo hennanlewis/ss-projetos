@@ -168,7 +168,7 @@ def init_routes(app):
         conn = sqlite3.connect("data/transporte.db")
         c = conn.cursor()
         c.execute("""INSERT INTO motoristas
-                    (nome, veiculo, quantidade_passageiros, created_at, modified_at)
+                    (nome, veiculo, qtdd_lugares, created_at, modified_at)
                     VALUES (?, ?, ?, ?, ?)""",
                 (nome, veiculo, quantidade_passageiros, created_at, modified_at))
         conn.commit()
