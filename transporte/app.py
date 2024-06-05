@@ -190,4 +190,4 @@ def submit_viagem():
 
 if __name__ == "__main__":
     check_tables()
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
