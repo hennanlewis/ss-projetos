@@ -30,6 +30,20 @@ def check_tables():
                   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                   modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                   deleted_at TIMESTAMP)""")
+    
+    c.execute("""CREATE TABLE IF NOT EXISTS motoristas
+                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  nome TEXT,
+                  veiculo TEXT,
+                  qtdd_lugares INTEGER)""")
+
+    c.execute("""CREATE TABLE IF NOT EXISTS rotas
+                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  viagem_id INTEGER,
+                  motorista_id INTEGER,
+                  nome_rota TEXT,
+                  FOREIGN KEY (viagem_id) REFERENCES viagens(id),
+                  FOREIGN KEY (motorista_id) REFERENCES motoristas(id))""")
 
     conn.commit()
     conn.close()
