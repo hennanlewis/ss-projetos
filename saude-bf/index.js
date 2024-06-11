@@ -25,26 +25,28 @@ const testUrlPage = async (page) => {
     }
 }
 
-    ; (async () => {
-        const browser = await puppeteer.launch({ headless: false })
-        const page = await browser.newPage()
-        await page.goto("https://egestorab.saude.gov.br/paginas/acessoRestrito/perfilAcesso.xhtml")
 
-        let button = await page.waitForSelector("div.form_card form#loginForm a")
-        await button.click()
+(async () => {
+    const browser = await puppeteer.launch({ headless: false })
+    const page = await browser.newPage()
+    await page.goto("https://egestorab.saude.gov.br/paginas/acessoRestrito/perfilAcesso.xhtml")
 
-        const cpfInput = await page.waitForSelector("input#accountId")
-        await cpfInput.type(CPF, { delay: 100 })
-        await page.keyboard.press("Enter")
+    let button = await page.waitForSelector("div.form_card form#loginForm a")
+    await button.click()
 
-        const passwordInput = await page.waitForSelector("input#password")
-        await passwordInput.type(PASSWORD, { delay: 150 })
-        await page.keyboard.press("Enter")
-    
-        await testUrlPage(page)
-        console.log("Página carregada")
+    const cpfInput = await page.waitForSelector("input#accountId")
+    await cpfInput.type(CPF, { delay: 100 })
+    await page.keyboard.press("Enter")
 
-        await page.screenshot({ path: "testresult.png", fullPage: true })
+    const passwordInput = await page.waitForSelector("input#password")
+    await passwordInput.type(PASSWORD, { delay: 150 })
+    await page.keyboard.press("Enter")
 
-        // await page.close()
-    })()
+    await testUrlPage(page)
+    console.log("Página carregada")
+
+    await page.screenshot({ path: "testresult.png", fullPage: true })
+
+    // await page.close()
+})()
+
